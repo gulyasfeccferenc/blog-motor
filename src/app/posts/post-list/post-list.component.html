@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row" *ngIf="posts.length > 0 && !isLoading">
+    <article *ngFor="let post of posts">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content }}</p>
+    </article>
+  </div>
+</div>
