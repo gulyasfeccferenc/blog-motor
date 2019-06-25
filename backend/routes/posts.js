@@ -5,6 +5,7 @@ const Post = require("../models/post");
 const router = express.Router();
 
 router.post("", (req, res, next) => {
+  console.warn(req);
   const post = new Post({
     title: req.body.title,
     content: req.body.content
@@ -34,6 +35,8 @@ router.get("", (req, res, next) => {
       message: "Posts fetched successfully!",
       posts: documents
     });
+  }).catch(e => {
+    console.error(e);
   });
 });
 

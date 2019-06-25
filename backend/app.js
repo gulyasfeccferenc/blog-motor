@@ -1,20 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const config = require("./config");
+
+const usr = config.development.database.usr;
+const pwd = config.development.database.password;
+const conn = config.development.database.db;
 
 const postsRoutes = require("./routes/posts");
-
 const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://insertproperconnectstringhere"
+    "mongodb+srv://" + usr + ":" + pwd + conn, { useNewUrlParser: true }
   )
   .then(() => {
     console.log("Connected to database!");
   })
-  .catch(() => {
-    console.log("Connection failed!");
+  .catch((e) => {
+    console.log("Connection failed!", e);
   });
 
 app.use(bodyParser.json());

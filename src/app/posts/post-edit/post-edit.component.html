@@ -1,3 +1,5 @@
-<p>
-  post-edit works!
-</p>
+<form action="">
+  <input type="text" name="title" ngModel="postTitle" placeholder="Your posts title">
+  <textarea name="content" id="content" ngModel="postContent" cols="30" rows="10" placeholder="Your posts content come here"></textarea>
+  <button (click)="sendToCreate()"></button>
+</form>
